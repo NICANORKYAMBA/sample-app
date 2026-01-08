@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: prod
   name: production-deployment
 spec:
   replicas: 3
@@ -14,6 +15,6 @@ spec:
     spec:
       containers:
       - name: production-container
-        image: <todo>
+        image: us-east1-docker.pkg.dev/qwiklabs-gcp-01-38c41e6a8438/my-repository/sample-app:v1.0
         ports:
         - containerPort: 8080
