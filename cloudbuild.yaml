@@ -10,3 +10,5 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
 images:
 - 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/sample-app:v1.0'
+options:
+  logging: CLOUD_LOGGING_ONLY
