@@ -1,14 +1,14 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/sample-app:v1.0', '.']
+  args: ['build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:v1.0', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/sample-app:v1.0']
+  args: ['push', 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:v1.0']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'prod/deployment.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
 images:
-- 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/sample-app:v1.0'
+- 'us-east1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:v1.0'
 options:
   logging: CLOUD_LOGGING_ONLY
